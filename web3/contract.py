@@ -5,20 +5,19 @@ import functools
 import itertools
 import json
 
-from eth_utils import (
-    function_abi_to_4byte_selector,
-    encode_hex,
-    add_0x_prefix,
-    coerce_return_to_text,
-    to_checksum_address,
-)
 from eth_abi import (
-    decode_abi
+    decode_abi,
 )
 from eth_abi.exceptions import (
     DecodingError,
 )
-
+from eth_utils import (
+    add_0x_prefix,
+    coerce_return_to_text,
+    encode_hex,
+    function_abi_to_4byte_selector,
+    to_checksum_address,
+)
 from toolz.functoolz import (
     compose,
 )
@@ -26,19 +25,18 @@ from toolz.functoolz import (
 from web3.exceptions import (
     BadFunctionCallOutput,
 )
-
 from web3.utils.abi import (
-    filter_by_type,
-    filter_by_name,
     filter_by_argument_name,
+    filter_by_name,
+    filter_by_type,
     get_abi_output_types,
     get_constructor_abi,
     map_abi_data,
     merge_args_and_kwargs,
 )
 from web3.utils.contracts import (
-    find_matching_fn_abi,
     encode_abi,
+    find_matching_fn_abi,
     get_function_info,
     prepare_transaction,
 )
@@ -68,14 +66,13 @@ from web3.utils.filters import (
 from web3.utils.normalizers import (
     BASE_RETURN_NORMALIZERS,
 )
+from web3.utils.transactions import (
+    fill_transaction_defaults,
+)
 from web3.utils.validation import (
     validate_abi,
     validate_address,
 )
-from web3.utils.transactions import (
-    fill_transaction_defaults,
-)
-
 
 DEPRECATED_SIGNATURE_MESSAGE = (
     "The constructor signature for the `Contract` object has changed. "
